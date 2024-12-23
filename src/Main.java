@@ -1,33 +1,37 @@
+
 public class Main {
-    public static void main(String[] args) {
-        //задання початкових завдань для проєкту
-        Task task1 = new Task("Дослідження властивостей води", 0, 1);
-        Task task2 = new Task("Дослідження властивостей металу", 0, 1);
-        Task task3= new Task("Дослідження властивостей скла", 0, 1);
-        //створення проєкту, який складається з деяких завдань
+        public static void main(String[] args) {
+            Project project = new Project();
 
-        Project project = new Project();
-        project.addTask(task1);
-        project.addTask(task2);
-        project.addTask(task3);
+            int ch;
 
-        //вибір користувачем, яку треба зробити з проєктом
-        int ch = Menu.ActionSelection();
+            do {
 
-        switch (ch) {
-            //додавання завдання до проєкту
-            case 1: project.addTask();
-                break;
-            //видалення завдання за його номером
-            case 2: project.removeTask();
-                break;
-            //оцінювання проєкту
-            case 3: project.Grade();
-                break;
-            case 0:
+                ch = Menu.get_int_in_range(""" 
+                
+                 1. Додати завдання до проєкту.
+                 2. Видалити завдання.
+                 3. Вивести завдання проєкту.
+                 
+                 0. Завершити виконання програми.
+                 Введіть число:""", 0, 4 );
+
+                switch (ch) {
+                    case 1:
+                        Task.addTask(project.tasks);
+                        break;
+
+                    case 2:
+                        Task.removeTask(project.tasks);
+                        break;
+
+                    case 3:
+                        project.display_project();
+                        break;
+                }
+
+            } while (ch != 0);
         }
-
-
-
     }
-}
+
+

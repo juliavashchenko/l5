@@ -1,27 +1,21 @@
 import java.util.ArrayList;
 
+
 public class Project {
-    public ArrayList<Task> tasks;
+    ArrayList<Task> tasks = new ArrayList<Task>();
 
     public Project() {
         this.tasks = new ArrayList<>();
     }
 
-    public Project(ArrayList<Task> tasks) {
-        this.tasks = tasks;
-    }
 
-    public void addTask(Task task) {
-        this.tasks.add(task);
-    }
-
-    public void addTask() {
+    public void display_project(){
+        System.out.println("\nСписок завдань у проєкті:");
+        Task.display(tasks);
 
     }
 
-    public void Grade() {
-    }
 
-    public void removeTask() {
-    }
 }
+
+

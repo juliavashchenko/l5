@@ -1,5 +1,15 @@
- class LongAnswerTask extends Task {
-     public LongAnswerTask(String text, int number, int grade) {
-         super(text, number, grade);
+ class LongAnswerTask extends TestTask {
+     public LongAnswerTask() {
+         super();
+     }
+
+     public LongAnswerTask(String name, String answer) {
+         super(name, answer);
+     }
+     @Override
+     public String answer() {
+         System.out.println("Введіть примітку до завдання(крапку, якщо приміток немає): ");
+         return System.console().readLine();
+
      }
  }
